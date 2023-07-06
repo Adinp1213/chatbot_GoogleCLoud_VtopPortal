@@ -1,0 +1,127 @@
+<html>
+<head>
+<title>Login Page</title>
+<style>
+form{
+  background-color:white;
+  border-top: 5px solid rgb(43,125,185);
+  width : 300px;
+  margin : 50px auto;
+  padding : 10px;
+}
+body{
+   background-color : rgb(232, 236, 237);
+}
+hr{
+  color: grey;
+}
+#header{
+   background-color:rgb(43,125,185);
+}
+#vtoploginheader{ 
+   margin-right:10px;
+   text-align:right;
+   color :white;
+}
+#logo{
+   float:left;
+   width: 200px;
+   height : 80px;
+}
+#id{
+  width : 290px;
+  border: 1px solid rgb(43,125,185);
+  height:30px;
+}
+#pass{
+  width : 290px;
+  border: 1px solid rgb(43,125,185);
+  height:30px;
+}
+#subm{
+  border : 0px;
+  background-color:rgb(43,125,185);
+  color :white ;
+  height:30px;
+}
+#cap{
+  width : 250px;
+  border: 1px solid rgb(43,125,185);
+  height:30px;
+}
+#capaa{
+  width : 250px;
+  text-align:center;
+  border: 1px solid rgb(43,125,185);
+  height:50px;
+  background-image:url("blurredimg.png");
+  background-repeat:no-repeat;
+  padding-left: 20px;
+}
+a{
+   margin-left:10px;
+}
+</style>
+</head>
+<body>
+<div id = "header">
+<img id = "logo" src = "vit_logo.jpg"><br>
+<h2 id = "vtoploginheader">Vtop login</h2>
+<p><a href = "https://vitap.ac.in/" style="color:white">www.vitap.ac.in</a></p>
+<p></p>
+</div>
+<form method="" action="" name="vtop_login" onsubmit="return validation()">
+<h4>Vtop Login</h4>
+<br>
+<hr>
+<input type="text" name = "id" id = "id" placeholder = "Username">
+<p id = "Usernamep" name = "usernamep"></p>
+<input type = "text" name= "pass" id = "pass" placeholder = "password">
+<p id = "Userpass" name = "userpass"></p>
+<input type="text" name = "capaa" id = "capaa" value = "20BCE7013">
+<input type="text" name = "cap" id = "cap" placeholder = "Captcha(CAPS & NUMBERS ONLY)">
+<p id = "capt" name = "capt"></p>
+<hr>
+
+<input type = "submit" name = "subm" id = "subm" value = "Sign In">
+<br><br>
+
+</form>
+<div align = CENTER>
+<iframe width="350" height="430" allow="microphone;" src="https://console.dialogflow.com/api-client/demo/embedded/6b6a8859-3df4-4063-9386-7991a373ab69"></iframe>
+</div>
+
+<script>
+function validation(){
+   var username = document.vtop_login.id;    
+   var password = document.vtop_login.pass; 
+   var captcheck = document.vtop_login.capaa;  
+   var captcha = document.vtop_login.cap; 
+	if (username.value.length <= 0) {       
+	   document.getElementById("Usernamep").innerHTML = "Username required "; 
+       document.getElementById("id").style.border = "1px solid red";	   
+	   return false;    
+	} 
+	
+   if (username.value != "YOO") {    
+	   document.getElementById("Usernamep").innerHTML = "Username invalid";   
+	   document.getElementById("id").style.border = "1px solid red";
+	   return false;       
+	} 
+   if (password.value != "123456") {      
+	   document.getElementById("Userpass").innerHTML = "Invalid Password"; 
+       document.getElementById("pass").style.border = "1px solid red";  
+	   return false;     
+	} 
+    if(captcha.value != captcheck.value){
+       document.getElementById("capt").innerHTML = "Captcha invalid";   
+	   document.getElementById("cap").style.border = "1px solid red";
+	   return false;  
+	} 	
+	window.location.href = "login_success.html";
+	return false;
+}
+
+</script>
+</body>
+</html>
